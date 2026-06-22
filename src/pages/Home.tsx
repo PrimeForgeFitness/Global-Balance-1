@@ -142,7 +142,7 @@ export function Home() {
               <CardContent className="pt-6">
                 <div className="flex items-center gap-3 mb-4">
                   {t.image ? (
-                    <img src={t.image} alt={t.author} className="w-12 h-12 rounded-full object-cover shrink-0" />
+                    <img src={t.image} alt={t.author} className="w-12 h-12 rounded-full object-contain bg-stone-100 shrink-0" />
                   ) : (
                     <ImagePlaceholder className="w-12 h-12 rounded-full shrink-0" aspect="square" />
                   )}
