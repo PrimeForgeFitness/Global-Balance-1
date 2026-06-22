@@ -77,7 +77,7 @@ export const services: Service[] = [
     duration: '30–60 минути',
     price: 20,
     icon: 'HeartPulse',
-    image: '/physiotherapy.png',
+    image: '/physiotherapy-pain-points.png',
   },
 ];
 
