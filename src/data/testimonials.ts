@@ -12,7 +12,7 @@ export const testimonials: Testimonial[] = [
     text: 'След години на хронична умора и безброй изследвания, аура диагностиката разкри проблема за по-малко от час. Протоколът на Петя промени живота ми — имам енергия, която не съм имала от десетилетия.',
     author: 'Гергана',
     rating: 5,
-    image: '/gergana-testimonial.jpg',
+    image: '/petya-testimonial.jpg',
   },
   {
     id: '2',
