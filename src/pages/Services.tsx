@@ -56,7 +56,7 @@ export function Services() {
                     <p className="text-stone-500 text-sm mb-4">{service.shortDescription}</p>
                     <div className="flex items-center gap-3 mb-4">
                       <Badge variant="secondary">{service.duration}</Badge>
-                      <span className="text-violet-600 font-bold">{formatPrice(service.price)}</span>
+                      {service.price !== undefined && <span className="text-violet-600 font-bold">{formatPrice(service.price)}</span>}
                     </div>
                     <div className="text-stone-600 text-sm leading-relaxed whitespace-pre-line mb-4">
                       {service.description}

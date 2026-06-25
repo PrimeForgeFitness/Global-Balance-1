@@ -121,7 +121,7 @@ export function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-stone-500 text-sm mb-3">{service.shortDescription}</p>
-                  <p className="text-violet-600 font-semibold mb-4">от {formatPrice(service.price)}</p>
+                  {service.price !== undefined && <p className="text-violet-600 font-semibold mb-4">от {formatPrice(service.price)}</p>}
                   <Link to="/services">
                     <Button variant="outline" size="sm">Научи повече</Button>
                   </Link>

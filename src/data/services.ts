@@ -34,7 +34,6 @@ export const services: Service[] = [
       'Енергийно ниво – работа с енергийния баланс според принципите на холистичните практики.',
     ],
     duration: '45–90 минути',
-    price: 120,
     icon: 'Zap',
     image: '/aae15a803ab3a93cca6fa52263936860.webp',
   },
