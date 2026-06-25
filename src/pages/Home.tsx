@@ -7,6 +7,7 @@ import { SectionWrapper } from '../components/shared/SectionWrapper';
 import { CTABanner } from '../components/shared/CTABanner';
 import { testimonials } from '../data/testimonials';
 import { services } from '../data/services';
+import { formatPrice } from '../utils/currency';
 
 const iconMap: Record<string, React.ElementType> = {
   HeartPulse, Zap, Scan, Activity,
@@ -120,7 +121,7 @@ export function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-stone-500 text-sm mb-3">{service.shortDescription}</p>
-                  <p className="text-violet-600 font-semibold mb-4">от {service.price} €.</p>
+                  <p className="text-violet-600 font-semibold mb-4">от {formatPrice(service.price)}</p>
                   <Link to="/services">
                     <Button variant="outline" size="sm">Научи повече</Button>
                   </Link>
