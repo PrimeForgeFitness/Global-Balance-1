@@ -6,6 +6,6 @@ export function convertBgnToEur(amountInBgn: number): number {
 }
 
 export function formatPrice(amountInBgn: number): string {
-  const amountInEur = convertBgnToEur(amountInBgn);
+  const amountInEur = Math.round(amountInBgn * BGN_TO_EUR_RATE);
   return `${amountInBgn} лв. / ${amountInEur} €`;
 }
