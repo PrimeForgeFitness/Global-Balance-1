@@ -10,7 +10,7 @@ import { SectionWrapper } from '../components/shared/SectionWrapper';
 import { offices } from '../data/team';
 
 // Initialize EmailJS
-emailjs.init(process.env.VITE_EMAILJS_PUBLIC_KEY || '');
+emailjs.init('nru-qaFWz4lTJ-OSd');
 
 export function Contacts() {
   const [submitted, setSubmitted] = useState(false);
