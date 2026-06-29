@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -9,54 +8,12 @@ import { ImagePlaceholder } from '../components/ui/image-placeholder';
 import { SectionWrapper } from '../components/shared/SectionWrapper';
 import { offices } from '../data/team';
 
-// Initialize EmailJS
-emailjs.init('nru-qaFWz4lTJ-OSd');
-
 export function Contacts() {
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
-
-    try {
-      await emailjs.send(
-        '12345',
-        'template_v4oya2v',
-        {
-          to_email: formData.email,
-          user_name: formData.name,
-          user_email: formData.email,
-          user_phone: formData.phone,
-          message: formData.message,
-        }
-      );
-
-      setSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      setError('Възникна грешка при изпращане на съобщението. Моля, опитайте отново.');
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
   };
 
   return (
@@ -83,40 +40,11 @@ export function Contacts() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <Input 
-                  name="name"
-                  placeholder="Три имена *" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  required 
-                />
-                <Input 
-                  name="email"
-                  type="email" 
-                  placeholder="Email адрес *" 
-                  value={formData.email}
-                  onChange={handleChange}
-                  required 
-                />
-                <Input 
-                  name="phone"
-                  type="tel" 
-                  placeholder="Телефонен номер *" 
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required 
-                />
-                <Textarea 
-                  name="message"
-                  placeholder="Вашето съобщение *" 
-                  value={formData.message}
-                  onChange={handleChange}
-                  required 
-                />
-                {error && <p className="text-red-600 text-sm">{error}</p>}
-                <Button type="submit" size="lg" className="w-full" disabled={loading}>
-                  {loading ? 'Изпращане...' : 'Изпрати'}
-                </Button>
+                <Input placeholder="Три имена *" required />
+                <Input type="email" placeholder="Email адрес *" required />
+                <Input type="tel" placeholder="Телефонен номер *" required />
+                <Textarea placeholder="Вашето съобщение *" required />
+                <Button type="submit" size="lg" className="w-full">Изпрати</Button>
               </form>
             )}
           </div>
